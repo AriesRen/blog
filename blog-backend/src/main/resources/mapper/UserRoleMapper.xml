@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.renhj.blog.mapper.UserRoleMapper">
+
+    <select id="selectRolesByUserId" resultType="roleEntity" parameterType="Long">
+        select role.role_id, role.description, role.name, role.created_time, role.created_user, role.updated_time, role.updated_user
+        from user_role, role
+        where user_role.role_id = role.role_id and user_role.user_id = #{userId}
+    </select>
+
+</mapper>

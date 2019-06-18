@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.renhj.blog.mapper.PostMapper">
+
+    <resultMap id="postWithUsername" type="org.renhj.blog.pojo.vo.BlogsVo">
+        <id column="post_id"  property="postId" jdbcType="BIGINT"/>
+        <id column="user_id"  property="userId" jdbcType="BIGINT"/>
+        <id column="category_id"  property="categoryId" jdbcType="BIGINT"/>
+        <result column="created_time" property="createdTime" jdbcType="TIMESTAMP"/>
+        <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP"/>
+        <result column="created_user" property="createdUser" jdbcType="VARCHAR"/>
+        <result column="updated_user" property="updatedUser" jdbcType="VARCHAR"/>
+        <result column="post_avatar" property="postAvatar" jdbcType="VARCHAR"/>
+        <result column="post_title" property="postTitle" jdbcType="VARCHAR"/>
+        <result column="post_content" property="postContent" jdbcType="VARCHAR"/>
+        <result column="post_desc" property="postDesc" jdbcType="VARCHAR"/>
+        <result column="post_images" property="postImages" jdbcType="VARCHAR"/>
+        <association property="user" column="user_id" jdbcType="BIGINT" select="org.renhj.blog.mapper.UserMapper.selectByPrimaryKey"/>
+        <association property="category" column="category_id" jdbcType="BIGINT" select="org.renhj.blog.mapper.CategoryMapper.selectByPrimaryKey"/>
+        <collection property="tags" column="post_id" select="org.renhj.blog.mapper.PostTagMapper.selectTagsByPostId"/>
+    </resultMap>
+
+
+    <select id="findPostsByUsername" resultMap="postWithUsername" parameterType="string">
+        select b.* from user a, post b where a.user_id = b.user_id and a.username = #{username}
+    </select>
+
+    <select id="selectNext" resultType="org.renhj.blog.pojo.entity.PostEntity">
+        select * from post where post_id &gt; #{id} order by post_id asc limit 1
+    </select>
+    <select id="selectPrevious" resultType="org.renhj.blog.pojo.entity.PostEntity">
+        select * from post where post_id &lt;  #{id} order by post_id desc limit 1
+    </select>
+</mapper>

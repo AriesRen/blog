@@ -1,0 +1,43 @@
+{
+  "name": "blog",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.8.2",
+    "animate.css": "^3.7.1",
+    "axios": "^0.18.0",
+    "echarts": "^4.2.1",
+    "highlight.js": "^9.15.6",
+    "js-cookie": "^2.2.0",
+    "material-design-icons-iconfont": "^5.0.1",
+    "mavon-editor": "^2.7.4",
+    "register-service-worker": "^1.6.2",
+    "vue": "^2.6.10",
+    "vue-router": "^3.0.3",
+    "vue-wechat-title": "^2.0.5",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.7.0",
+    "@vue/cli-plugin-eslint": "^3.7.0",
+    "@vue/cli-plugin-pwa": "^3.7.0",
+    "@vue/cli-service": "^3.7.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
+    "element-ui": "^2.8.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "marked": "^0.6.2",
+    "nprogress": "^0.2.0",
+    "sass": "^1.18.0",
+    "sass-loader": "^7.1.0",
+    "vue-lazyload": "^1.2.6",
+    "vue-template-compiler": "^2.5.21",
+    "vuetify": "^1.5.14"
+  }
+}
